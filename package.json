@@ -1,0 +1,26 @@
+{
+  "name": "node-crawler",
+  "version": "1.0.0",
+  "description": "Краулер сайта. Домашнее задание для Школы разработки интерфейсов 2023 Яндекса. Для лекции по Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mshornikov/node-crawler.git"
+  },
+  "keywords": [
+    "nodejs",
+    "js"
+  ],
+  "author": "Mikhail Shornikov",
+  "bugs": {
+    "url": "https://github.com/mshornikov/node-crawler/issues"
+  },
+  "homepage": "https://github.com/mshornikov/node-crawler#readme",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "prettier": "^2.8.8"
+  }
+}
