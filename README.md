@@ -51,3 +51,8 @@
 
 Если используете typescript - в src.zip должно находиться уже скомпилированное в js приложение с файлом server.js для запуска и 
 остальными файлами.
+
+---
+[Ссылка на лекцию в YouTube](https://www.youtube.com/watch?v=jvhL2meD0_U)
+
+[Ссылка на полную запись с закрытой частью и вопросами в Yandex Disk ](https://disk.yandex.ru/i/JY380b1p3ueqCA)

@@ -23,7 +23,7 @@ app.post("/parse", async (req, res) => {
     const { domainName } = req.body;
     const visited = new Set();
     const queue = [domainName];
-    const pages = [];
+    let pages = [];
 
     while (queue.length > 0) {
         const url = queue.shift();
@@ -32,8 +32,8 @@ app.post("/parse", async (req, res) => {
         }
         visited.add(url);
         try {
-            for (i = 0; i < 2; i++) {
-                let fetchedURL = await fetcher(url);
+            for (i = 0; i <= 1; i++) {
+                const fetchedURL = await fetcher(url);
                 if (fetchedURL.status === 200) {
                     const links = findLink(await fetchedURL.text());
                     for (const link of links) {
@@ -49,6 +49,8 @@ app.post("/parse", async (req, res) => {
             console.error(`Ошибка ${url}: ${error.message}`);
         }
     }
+
+    pages = pages.slice(1);
 
     fs.writeFile("output.txt", pages.join("\n"), (err) => {
         if (err) throw err;
