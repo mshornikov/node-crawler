@@ -56,3 +56,5 @@
 [Ссылка на лекцию в YouTube](https://www.youtube.com/watch?v=jvhL2meD0_U)
 
 [Ссылка на полную запись с закрытой частью и вопросами в Yandex Disk ](https://disk.yandex.ru/i/JY380b1p3ueqCA)
+
+[Ссылка на задание](https://school.yandex.ru/courses/51/groups/568/lessons/178/tasks/230/solutions/188887)
