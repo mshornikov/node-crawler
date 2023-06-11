@@ -1,6 +1,6 @@
 const express = require("express");
 const { fetcher } = require("../fetcher.js");
-const fs = require("node:fs");
+const fs = require("fs");
 
 const app = express();
 const port = 3000;
@@ -26,31 +26,31 @@ app.post("/parse", async (req, res) => {
     let pages = [];
 
     while (queue.length > 0) {
-        const url = queue.shift();
-        if (visited.has(url)) {
-            continue;
-        }
-        visited.add(url);
+        const link = queue.shift();
+        if (visited.has(link)) continue;
+        visited.add(link);
         try {
             for (i = 0; i <= 1; i++) {
-                const fetchedURL = await fetcher(url);
+                const fetchedURL = await fetcher(link);
                 if (fetchedURL.status === 200) {
                     const links = findLink(await fetchedURL.text());
                     for (const link of links) {
-                        queue.push(link);
+                        if (!link.startsWith(domainName)) {
+                            queue.push(domainName + link);
+                        } else {
+                            queue.push(link);
+                        }
                     }
-                    pages.push(url);
+                    pages.push(link);
                     break;
                 } else if (fetchedURL.status === 500) {
                     continue;
                 }
             }
         } catch (error) {
-            console.error(`Ошибка ${url}: ${error.message}`);
+            console.error(`Ошибка ${link}: ${error.message}`);
         }
     }
-
-    pages = pages.slice(1);
 
     fs.writeFile("output.txt", pages.join("\n"), (err) => {
         if (err) throw err;
